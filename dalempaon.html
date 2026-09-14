@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DalamPaonGarage_17 </title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        racingRed: '#ff003c',
+                        darkBg: '#090a0f',
+                        cardBg: '#12151f',
+                        borderRed: '#ff003c55',
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #090a0f;
+            color: #f3f4f6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-racing {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .glow-red {
+            text-shadow: 0 0 20px rgba(255, 0, 60, 0.6);
+        }
+        .box-glow {
+            box-shadow: 0 0 25px rgba(255, 0, 60, 0.12);
+            border: 1px solid rgba(255, 0, 60, 0.25);
+            transition: all 0.4s ease;
+        }
+        .box-glow:hover {
+            box-shadow: 0 0 40px rgba(255, 0, 60, 0.4);
+            border-color: rgba(255, 0, 60, 0.8);
+            transform: translateY(-4px);
+        }
+        .bg-pattern {
+            background-image: radial-gradient(circle at 50% 20%, rgba(255, 0, 60, 0.08) 0%, transparent 60%),
+                              linear-gradient(to right, rgba(255,255,255,0.015) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ff003c;
+            border-radius: 4px;
+        }
+        .carbon-bg {
+            background: radial-gradient(circle, #1a1e29 0%, #0d0f17 100%);
+        }
+        .logo-glow {
+            filter: drop-shadow(0 0 15px rgba(255, 0, 60, 0.6));
+        }
+    </style>
+</head>
+<body class="bg-pattern min-h-screen text-slate-100 selection:bg-racingRed selection:text-white">
+
+    <!-- HEADER / NAVBAR -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-red-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <img src="https://cdn.phototourl.com/free/2026-09-14-e15c4ce9-ed32-4a5f-98cc-56696cd9da4f.png" alt="Logo DalamPaonGarage_17" class="w-10 h-10 md:w-12 md:h-12 object-contain logo-glow animate-pulse">
+                <span class="font-racing font-black text-sm sm:text-base md:text-lg tracking-wider bg-gradient-to-r from-white via-slate-200 to-racingRed bg-clip-text text-transparent">
+                    DALAMPAONGARAGE<span class="text-racingRed">_17</span>
+                </span>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-8 font-racing text-xs tracking-widest font-semibold">
+                <a href="#home" class="hover:text-racingRed transition duration-300">BERANDA</a>
+                <a href="#about" class="hover:text-racingRed transition duration-300">TENTANG</a>
+                <a href="#team" class="hover:text-racingRed transition duration-300">STRUKTUR TIM</a>
+                <a href="#location" class="hover:text-racingRed transition duration-300">LOKASI</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <a href="https://instagram.com/dalempaongarage_17" target="_blank" class="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-pink-600 to-racingRed text-white px-4 py-2 rounded-full font-racing text-[11px] tracking-wider shadow-lg hover:shadow-racingRed/50 transition duration-300 transform hover:scale-105">
+                    <i class="fa-brands fa-instagram text-sm"></i>
+                    <span>@dalempaongarage_17</span>
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-darkBg/98 border-b border-red-900/30 px-6 py-6 space-y-4 font-racing text-xs tracking-wider">
+            <a href="#home" class="block hover:text-racingRed mobile-link">BERANDA</a>
+            <a href="#about" class="block hover:text-racingRed mobile-link">TENTANG</a>
+            <a href="#team" class="block hover:text-racingRed mobile-link">STRUKTUR TIM</a>
+            <a href="#location" class="block hover:text-racingRed mobile-link">LOKASI</a>
+            <div class="pt-2">
+                <a href="https://instagram.com/dalempaongarage_17" target="_blank" class="flex justify-center items-center space-x-2 bg-gradient-to-r from-pink-600 to-racingRed text-white px-4 py-2.5 rounded-xl font-racing text-[11px]">
+                    <i class="fa-brands fa-instagram text-sm"></i>
+                    <span>@dalempaongarage_17</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative pt-28 pb-16 md:pt-36 md:pb-24 flex items-center justify-center min-h-screen">
+        <div class="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[550px] h-[550px] bg-racingRed rounded-full blur-[150px]"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center space-x-2 bg-cardBg border border-red-900/50 px-3.5 py-1.5 rounded-full mb-5 shadow-inner">
+                <span class="w-2 h-2 rounded-full bg-racingRed animate-ping"></span>
+                <span class="font-racing text-[11px] text-slate-300 tracking-widest uppercase">Official Website DalamPaonGarage_17</span>
+            </div>
+
+            <!-- Logo Utama Showcase -->
+            <div class="mb-6 flex justify-center">
+                <div class="relative group">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-racingRed via-pink-600 to-racingRed rounded-full blur-xl opacity-40 group-hover:opacity-75 transition duration-500 animate-pulse"></div>
+                    <img src="https://cdn.phototourl.com/free/2026-09-14-e15c4ce9-ed32-4a5f-98cc-56696cd9da4f.png" alt="Logo Utama DalamPaonGarage_17" class="relative w-36 sm:w-48 md:w-56 h-auto object-contain logo-glow transform hover:scale-105 transition duration-500">
+                </div>
+            </div>
+
+            <h1 class="font-racing text-2xl sm:text-4xl md:text-5xl font-black tracking-wide uppercase mb-4 leading-snug">
+                DALAMPAON<span class="text-racingRed glow-red">GARAGE_17</span>
+            </h1>
+
+            <p class="max-w-xl mx-auto text-slate-400 text-xs sm:text-sm md:text-base mb-8 leading-relaxed font-normal">
+                Kecepatan, ketepatan mesin, dan adrenalin tinggi bersatu di sini. Basis resmi para pencinta kecepatan dari <span class="text-white font-semibold">Desa Gelangsar, Kec. Gunungsari</span>.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-3">
+                <a href="#team" class="w-full sm:w-auto bg-racingRed hover:bg-red-700 text-white font-racing font-bold px-6 py-3 rounded-xl tracking-wider shadow-lg shadow-racingRed/30 transition duration-300 transform hover:-translate-y-0.5 text-xs text-center">
+                    LIHAT STRUKTUR TIM
+                </a>
+                <a href="#location" class="w-full sm:w-auto bg-cardBg hover:bg-slate-800 text-slate-200 border border-slate-700 font-racing font-bold px-6 py-3 rounded-xl tracking-wider transition duration-300 transform hover:-translate-y-0.5 text-xs text-center">
+                    KUNJUNGI BASECAMP
+                </a>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mt-12 pt-10 border-t border-slate-800/80">
+                <div class="bg-cardBg/70 backdrop-blur-md p-4 rounded-xl box-glow">
+                    <div class="font-racing text-2xl md:text-3xl font-black text-racingRed mb-0.5">#17</div>
+                    <div class="text-[10px] font-racing text-slate-400 tracking-wider">TEAM NUMBER</div>
+                </div>
+                <div class="bg-cardBg/70 backdrop-blur-md p-4 rounded-xl box-glow">
+                    <div class="font-racing text-2xl md:text-3xl font-black text-white mb-0.5">100%</div>
+                    <div class="text-[10px] font-racing text-slate-400 tracking-wider">SOLID & INTI</div>
+                </div>
+                <div class="bg-cardBg/70 backdrop-blur-md p-4 rounded-xl box-glow">
+                    <div class="font-racing text-2xl md:text-3xl font-black text-racingRed mb-0.5">PRO</div>
+                    <div class="text-[10px] font-racing text-slate-400 tracking-wider">ENGINE TUNING</div>
+                </div>
+                <div class="bg-cardBg/70 backdrop-blur-md p-4 rounded-xl box-glow">
+                    <div class="font-racing text-2xl md:text-3xl font-black text-white mb-0.5">LOMBOK</div>
+                    <div class="text-[10px] font-racing text-slate-400 tracking-wider">BASE LOCATION</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 relative carbon-bg border-y border-red-900/20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div>
+                    <div class="inline-flex items-center space-x-2 text-racingRed font-racing text-xs tracking-widest mb-2">
+                        <i class="fa-solid fa-flag-checkered"></i>
+                        <span>TENTANG KAMI</span>
+                    </div>
+                    <h2 class="font-racing text-2xl md:text-3xl font-black uppercase tracking-wide mb-4 leading-tight">
+                        DAPUR PACU <span class="text-racingRed">ADRENALIN</span> & PRESTASI
+                    </h2>
+                    <p class="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed mb-4">
+                        <strong class="text-white">DalamPaonGarage_17</strong> bukan sekadar tempat modifikasi atau tim balap biasa. Ini adalah wadah perkumpulan para pemuda dan pejuang aspal yang berdedikasi tinggi terhadap dunia otomotif dan sportivitas tinggi.
+                    </p>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+                        Berbasis di Desa Gelangsar, Kecamatan Gunungsari, tim kami digawangi oleh talenta-talenta berbakat mulai dari mekanik handal hingga joki profesional.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="border-l-2 border-racingRed pl-3">
+                            <h4 class="font-racing text-white font-bold text-sm mb-1">Misi Utama</h4>
+                            <p class="text-[11px] text-slate-400">Simbol kebanggaan otomotif lokal dengan performa mesin tanpa kompromi.</p>
+                        </div>
+                        <div class="border-l-2 border-racingRed pl-3">
+                            <h4 class="font-racing text-white font-bold text-sm mb-1">Solidaritas</h4>
+                            <p class="text-[11px] text-slate-400">Didukung penuh oleh Rencang-Rencang Inti di garis depan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-racingRed to-pink-600 rounded-2xl blur-lg opacity-25"></div>
+                    <div class="relative bg-cardBg border border-red-900/40 p-6 sm:p-8 rounded-2xl shadow-xl">
+                        <div class="flex items-center space-x-3 mb-5 pb-5 border-b border-slate-800">
+                            <img src="https://cdn.phototourl.com/free/2026-09-14-e15c4ce9-ed32-4a5f-98cc-56696cd9da4f.png" alt="Logo Small" class="w-11 h-11 object-contain logo-glow">
+                            <div>
+                                <h3 class="font-racing text-base font-bold text-white">DP GARAGE SPEC_17</h3>
+                                <p class="text-[11px] text-slate-400">High Performance Racing & Tuning Team</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 text-xs sm:text-sm text-slate-300 font-medium">
+                            <li class="flex items-center space-x-2.5">
+                                <i class="fa-solid fa-check text-racingRed"></i>
+                                <span>Riset mesin presisi tinggi & teruji</span>
+                            </li>
+                            <li class="flex items-center space-x-2.5">
+                                <i class="fa-solid fa-check text-racingRed"></i>
+                                <span>Setup handling & suspensi kompetisi</span>
+                            </li>
+                            <li class="flex items-center space-x-2.5">
+                                <i class="fa-solid fa-check text-racingRed"></i>
+                                <span>Manajemen tim profesional & solid</span>
+                            </li>
+                            <li class="flex items-center space-x-2.5">
+                                <i class="fa-solid fa-check text-racingRed"></i>
+                                <span>Eksistensi aktif di kancah balap regional</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM STRUCTURE SECTION -->
+    <section id="team" class="py-20 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <div class="inline-flex items-center space-x-2 text-racingRed font-racing text-xs tracking-widest mb-2">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <span>SQUAD KAMI</span>
+                </div>
+                <h2 class="font-racing text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-wide mb-3">
+                    STRUKTUR <span class="text-racingRed glow-red">TIM RESMI</span>
+                </h2>
+                <p class="text-slate-400 text-xs sm:text-sm">
+                    Orang-orang hebat di balik ketangguhan DalamPaonGarage_17.
+                </p>
+            </div>
+
+            <!-- Team Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- PENDIRI -->
+                <div class="bg-cardBg border border-slate-800 hover:border-racingRed/60 transition duration-500 rounded-2xl p-6 text-center group relative overflow-hidden box-glow">
+                    <div class="absolute top-0 right-0 bg-racingRed text-white font-racing text-[9px] px-3.5 py-1 rounded-bl-xl font-bold tracking-widest">
+                        LEADERSHIP
+                    </div>
+                    <div class="w-18 h-18 mx-auto mb-4 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-racingRed flex items-center justify-center text-2xl text-racingRed group-hover:scale-110 transition duration-300 shadow-md shadow-racingRed/20" style="width: 72px; height: 72px;">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <span class="inline-block bg-slate-800 text-slate-300 font-racing text-[10px] px-2.5 py-0.5 rounded-full mb-2 tracking-wider">PENDIRI</span>
+                    <h3 class="font-racing text-lg sm:text-xl font-black text-white mb-1 group-hover:text-racingRed transition duration-300">ZULL KIFLI</h3>
+                    <p class="text-[11px] text-slate-400 leading-snug">Visionaris utama yang mendirikan dan mengarahkan kejayaan tim.</p>
+                </div>
+
+                <!-- MEKANIK -->
+                <div class="bg-cardBg border border-slate-800 hover:border-racingRed/60 transition duration-500 rounded-2xl p-6 text-center group relative overflow-hidden box-glow">
+                    <div class="absolute top-0 right-0 bg-racingRed text-white font-racing text-[9px] px-3.5 py-1 rounded-bl-xl font-bold tracking-widest">
+                        TUNING EXPERT
+                    </div>
+                    <div class="w-18 h-18 mx-auto mb-4 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-racingRed flex items-center justify-center text-2xl text-racingRed group-hover:scale-110 transition duration-300 shadow-md shadow-racingRed/20" style="width: 72px; height: 72px;">
+                        <i class="fa-solid fa-wrench"></i>
+                    </div>
+                    <span class="inline-block bg-slate-800 text-slate-300 font-racing text-[10px] px-2.5 py-0.5 rounded-full mb-2 tracking-wider">MEKANIK</span>
+                    <h3 class="font-racing text-lg sm:text-xl font-black text-white mb-1 group-hover:text-racingRed transition duration-300">AWANSS</h3>
+                    <p class="text-[11px] text-slate-400 leading-snug">Ahli bedah mesin yang meracik performa optimal motor balap.</p>
+                </div>
+
+                <!-- JOKI -->
+                <div class="bg-cardBg border border-slate-800 hover:border-racingRed/60 transition duration-500 rounded-2xl p-6 text-center group relative overflow-hidden box-glow">
+                    <div class="absolute top-0 right-0 bg-racingRed text-white font-racing text-[9px] px-3.5 py-1 rounded-bl-xl font-bold tracking-widest">
+                        SPEED RIDER
+                    </div>
+                    <div class="w-18 h-18 mx-auto mb-4 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-racingRed flex items-center justify-center text-2xl text-racingRed group-hover:scale-110 transition duration-300 shadow-md shadow-racingRed/20" style="width: 72px; height: 72px;">
+                        <i class="fa-solid fa-person-biking"></i>
+                    </div>
+                    <span class="inline-block bg-slate-800 text-slate-300 font-racing text-[10px] px-2.5 py-0.5 rounded-full mb-2 tracking-wider">JOKI</span>
+                    <h3 class="font-racing text-lg sm:text-xl font-black text-white mb-1 group-hover:text-racingRed transition duration-300">Yanss</h3>
+                    <p class="text-[11px] text-slate-400 leading-snug">Eksekutor di lintasan dengan nyali besar dan refleks kilat.</p>
+                </div>
+
+                <!-- KAMERAMEN -->
+                <div class="bg-cardBg border border-slate-800 hover:border-racingRed/60 transition duration-500 rounded-2xl p-6 text-center group relative overflow-hidden box-glow">
+                    <div class="absolute top-0 right-0 bg-racingRed text-white font-racing text-[9px] px-3.5 py-1 rounded-bl-xl font-bold tracking-widest">
+                        MEDIA CREW
+                    </div>
+                    <div class="w-18 h-18 mx-auto mb-4 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-racingRed flex items-center justify-center text-2xl text-racingRed group-hover:scale-110 transition duration-300 shadow-md shadow-racingRed/20" style="width: 72px; height: 72px;">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <span class="inline-block bg-slate-800 text-slate-300 font-racing text-[10px] px-2.5 py-0.5 rounded-full mb-2 tracking-wider">KAMERAMEN</span>
+                    <h3 class="font-racing text-lg sm:text-xl font-black text-white mb-1 group-hover:text-racingRed transition duration-300">ZUL KIFLI</h3>
+                    <p class="text-[11px] text-slate-400 leading-snug">Mengabadikan setiap detik aksi dan momen dramatis tim.</p>
+                </div>
+
+                <!-- ANGGOTA (RENCANG RENCANG INTI) -->
+                <div class="bg-cardBg border border-slate-800 hover:border-racingRed/60 transition duration-500 rounded-2xl p-6 text-center group relative overflow-hidden box-glow sm:col-span-2 lg:col-span-2">
+                    <div class="absolute top-0 right-0 bg-racingRed text-white font-racing text-[9px] px-3.5 py-1 rounded-bl-xl font-bold tracking-widest">
+                        SOLIDARITAS UTAMA
+                    </div>
+                    <div class="w-18 h-18 mx-auto mb-4 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-racingRed flex items-center justify-center text-2xl text-racingRed group-hover:scale-110 transition duration-300 shadow-md shadow-racingRed/20" style="width: 72px; height: 72px;">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <span class="inline-block bg-slate-800 text-slate-300 font-racing text-[10px] px-2.5 py-0.5 rounded-full mb-2 tracking-wider">ANGGOTA</span>
+                    <h3 class="font-racing text-lg sm:text-2xl font-black text-white mb-1 group-hover:text-racingRed transition duration-300">RENCANG RENCANG INTI</h3>
+                    <p class="text-[11px] sm:text-xs text-slate-400 max-w-md mx-auto leading-snug">Pasukan inti dan barisan pendukung sejati yang selalu solid mengawal setiap langkah tim.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION SECTION -->
+    <section id="location" class="py-20 relative carbon-bg border-t border-red-900/20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <div class="inline-flex items-center space-x-2 text-racingRed font-racing text-xs tracking-widest mb-2">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>BASECAMP UTAMA</span>
+                </div>
+                <h2 class="font-racing text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-wide mb-3">
+                    LOKASI <span class="text-racingRed glow-red">GARASI</span>
+                </h2>
+                <p class="text-slate-400 text-xs sm:text-sm">
+                    Kunjungi markas resmi kami untuk konsultasi mesin atau kolaborasi.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+                <!-- Location Info Card -->
+                <div class="bg-cardBg border border-red-900/40 p-6 sm:p-8 rounded-2xl box-glow space-y-5 lg:col-span-1">
+                    <div class="w-12 h-12 rounded-xl bg-racingRed/10 border border-racingRed flex items-center justify-center text-racingRed text-xl font-bold">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-racing text-lg font-bold text-white mb-1.5">Desa Gelangsar</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-3">
+                            Kecamatan Gunungsari, Kabupaten Lombok Barat, Nusa Tenggara Barat.
+                        </p>
+                        <div class="inline-block bg-slate-800 text-racingRed font-racing text-[10px] px-3 py-1.5 rounded-lg font-semibold tracking-wider">
+                            BASECAMP DALAMPAONGARAGE_17
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t border-slate-800 space-y-2.5">
+                        <a href="https://instagram.com/dalempaongarage_17" target="_blank" class="flex items-center space-x-2.5 text-slate-300 hover:text-racingRed transition duration-300">
+                            <i class="fa-brands fa-instagram text-base text-pink-500"></i>
+                            <span class="font-medium text-xs">@dalempaongarage_17</span>
+                        </a>
+                        <div class="flex items-center space-x-2.5 text-slate-300">
+                            <i class="fa-solid fa-clock text-base text-racingRed"></i>
+                            <span class="font-medium text-xs">Buka Setiap Hari (10.00 - Selesai)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Card -->
+                <div class="bg-cardBg border border-slate-800 rounded-2xl p-4 lg:col-span-2 overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkBg/80 via-transparent to-transparent z-10 pointer-events-none"></div>
+                    <div class="w-full h-72 sm:h-80 rounded-xl bg-slate-900 overflow-hidden relative flex items-center justify-center border border-slate-800">
+                        <div class="absolute inset-0 opacity-40 bg-[radial-gradient(#ff003c_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                        <div class="relative z-20 text-center p-6 max-w-sm">
+                            <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-racingRed/20 border-2 border-racingRed flex items-center justify-center text-racingRed text-2xl animate-bounce">
+                                <i class="fa-solid fa-location-crosshairs"></i>
+                            </div>
+                            <h4 class="font-racing text-base font-bold text-white mb-1">Desa Gelangsar, Kec. Gunungsari</h4>
+                            <p class="text-[11px] text-slate-400 mb-5">Titik kumpul resmi Rencang-Rencang Inti dan pusat riset tim.</p>
+                            <a href="https://maps.google.com/?q=Gunungsari+Lombok+Barat" target="_blank" class="inline-flex items-center space-x-2 bg-racingRed hover:bg-red-700 text-white font-racing text-[11px] px-5 py-2.5 rounded-xl font-bold tracking-widest transition duration-300">
+                                <i class="fa-solid fa-compass"></i>
+                                <span>BUKA DI GOOGLE MAPS</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-cardBg border-t border-red-900/30 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:flex md:justify-between md:items-center">
+            <div class="flex items-center justify-center md:justify-start space-x-3 mb-4 md:mb-0">
+                <img src="https://cdn.phototourl.com/free/2026-09-14-e15c4ce9-ed32-4a5f-98cc-56696cd9da4f.png" alt="Logo Footer" class="w-9 h-9 object-contain logo-glow">
+                <span class="font-racing font-black text-sm sm:text-base tracking-wider text-white">
+                    DALAMPAONGARAGE<span class="text-racingRed">_17</span>
+                </span>
+            </div>
+
+            <div class="flex justify-center space-x-4 mb-4 md:mb-0">
+                <a href="https://instagram.com/dalempaongarage_17" target="_blank" class="w-9 h-9 rounded-full bg-slate-900 border border-slate-700 hover:border-racingRed text-slate-300 hover:text-racingRed flex items-center justify-center transition duration-300">
+                    <i class="fa-brands fa-instagram text-base"></i>
+                </a>
+                <a href="#home" class="w-9 h-9 rounded-full bg-slate-900 border border-slate-700 hover:border-racingRed text-slate-300 hover:text-racingRed flex items-center justify-center transition duration-300">
+                    <i class="fa-solid fa-arrow-up text-base"></i>
+                </a>
+            </div>
+
+            <p class="text-[11px] text-slate-500 font-medium">
+                &copy; 2026 DalamPaonGarage_17. All Rights Reserved. Desa Gelangsar, Kec. Gunungsari.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
